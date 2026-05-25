@@ -1,0 +1,339 @@
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #f4ede2;
+  --bg-deep: #ebe1d0;
+  --ink: #1a1714;
+  --ink-soft: #5c544c;
+  --ink-muted: #8a8278;
+  --paper: #ffffff;
+  --rule: #1a1714;
+  --accent: #c73e1d;
+  --accent-deep: #7a2412;
+
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-soft: 0 1px 0 rgba(26, 23, 20, 0.06), 0 10px 30px -18px rgba(26, 23, 20, 0.25);
+  --shadow-lift: 0 2px 0 rgba(26, 23, 20, 0.08), 0 22px 40px -22px rgba(26, 23, 20, 0.35);
+
+  --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Reset-ish ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100svh;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 110% -10%, rgba(199, 62, 29, 0.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(122, 36, 18, 0.06), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* ---------- Page ---------- */
+.page {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 2rem) 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+/* ---------- Profile ---------- */
+.profile {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: clamp(108px, 28vw, 132px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--paper);
+  padding: 4px;
+  box-shadow: var(--shadow-soft);
+  transform: rotate(-2deg);
+  transition: transform 240ms ease;
+}
+.avatar:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+.avatar svg,
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 7vw, 2.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0.75rem 0 0;
+  font-variation-settings: "opsz" 96;
+}
+
+.handle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--ink-muted);
+  margin: 0.15rem 0 0.4rem;
+}
+
+.bio {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 38ch;
+  margin: 0;
+}
+
+/* Small editorial rule under profile */
+.profile::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--rule);
+  opacity: 0.35;
+  margin-top: 0.75rem;
+}
+
+/* ---------- Links ---------- */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  background: var(--paper);
+  border: 1px solid rgba(26, 23, 20, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+  transition:
+    transform 180ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+  will-change: transform;
+}
+
+.link:hover,
+.link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(199, 62, 29, 0.35);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.link:active {
+  transform: translateY(0);
+}
+
+.link__icon {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.link__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.link__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.link__title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
+
+.link__desc {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.link__arrow {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--ink-muted);
+  transition: transform 220ms ease, color 220ms ease;
+  padding-left: 0.25rem;
+}
+
+.link:hover .link__arrow,
+.link:focus-visible .link__arrow {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+/* Ghost variant for the email link — flatter, less prominent */
+.link--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: 1px dashed rgba(26, 23, 20, 0.18);
+}
+.link--ghost:hover,
+.link--ghost:focus-visible {
+  background: var(--paper);
+  border-style: solid;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.5rem;
+}
+.footer p {
+  margin: 0;
+}
+.footer__mark {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--accent);
+  margin-right: 0.25rem;
+}
+
+/* ---------- Responsive bumps ---------- */
+@media (min-width: 720px) {
+  .page {
+    padding-top: 4.5rem;
+    gap: 2.75rem;
+  }
+  .link {
+    padding: 1.05rem 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page {
+    max-width: 560px;
+  }
+  .name {
+    font-size: 3.1rem;
+  }
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .avatar {
+    transform: none;
+  }
+}
+
+/* ---------- Dark mode ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14110e;
+    --bg-deep: #0d0b09;
+    --ink: #f4ede2;
+    --ink-soft: #c8bdaf;
+    --ink-muted: #8a8278;
+    --paper: #1f1b17;
+    --rule: #f4ede2;
+    --accent: #e85a3a;
+    --accent-deep: #c73e1d;
+    --shadow-soft: 0 1px 0 rgba(0, 0, 0, 0.4), 0 10px 30px -18px rgba(0, 0, 0, 0.7);
+    --shadow-lift: 0 2px 0 rgba(0, 0, 0, 0.5), 0 22px 40px -22px rgba(0, 0, 0, 0.8);
+  }
+  .link {
+    border-color: rgba(244, 237, 226, 0.08);
+  }
+  .link:hover,
+  .link:focus-visible {
+    border-color: rgba(232, 90, 58, 0.45);
+  }
+  .link__icon {
+    background: rgba(244, 237, 226, 0.06);
+  }
+  .link--ghost {
+    border-color: rgba(244, 237, 226, 0.18);
+  }
+}
