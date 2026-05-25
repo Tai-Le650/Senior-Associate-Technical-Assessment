@@ -24,8 +24,7 @@ Type into the terminal:
 Then click the link.
 
 Look for the dark **"Ask about Tai"** pill in the bottom-right corner. Click it, then
-try one of the seeded chips or type a free-form question (e.g. *"is Tai a good fit for
-a frontend role?"*, *"what did they do at LLNL?"*, *"download the résumé"*).
+try one of the seeded chips or type a free-form question.
 
 ---
 
