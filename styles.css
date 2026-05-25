@@ -1,19 +1,21 @@
 /* ---------- Tokens ---------- */
 :root {
-  --bg: #f4ede2;
-  --bg-deep: #ebe1d0;
-  --ink: #1a1714;
-  --ink-soft: #5c544c;
-  --ink-muted: #8a8278;
-  --paper: #ffffff;
-  --rule: #1a1714;
-  --accent: #c73e1d;
-  --accent-deep: #7a2412;
+  color-scheme: dark;
 
-  --radius: 14px;
-  --radius-lg: 22px;
-  --shadow-soft: 0 1px 0 rgba(26, 23, 20, 0.06), 0 10px 30px -18px rgba(26, 23, 20, 0.25);
-  --shadow-lift: 0 2px 0 rgba(26, 23, 20, 0.08), 0 22px 40px -22px rgba(26, 23, 20, 0.35);
+  --bg: #0F111A;
+  --bg-deep: #0A0C13;
+  --ink: #F1F5F9;
+  --ink-soft: #CBD5E1;
+  --ink-muted: #94A3B8;
+  --paper: rgba(255, 255, 255, 0.05);
+  --rule: rgba(241, 245, 249, 0.12);
+  --accent: #F1F5F9;
+  --accent-deep: #CBD5E1;
+
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow-soft: 0 1px 0 rgba(0, 0, 0, 0.4), 0 10px 30px -18px rgba(0, 0, 0, 0.7);
+  --shadow-lift: 0 2px 0 rgba(0, 0, 0, 0.5), 0 22px 40px -22px rgba(0, 0, 0, 0.85);
 
   --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -37,13 +39,29 @@ body {
   font-family: var(--font-sans);
   color: var(--ink);
   background:
-    radial-gradient(1200px 600px at 110% -10%, rgba(199, 62, 29, 0.08), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(122, 36, 18, 0.06), transparent 60%),
+    radial-gradient(1200px 600px at 110% -10%, rgba(255, 255, 255, 0.04), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(255, 255, 255, 0.025), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 a {
@@ -161,25 +179,22 @@ a {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1rem;
-  padding: 0.95rem 1.1rem;
+  padding: 1rem;
   background: var(--paper);
-  border: 1px solid rgba(26, 23, 20, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   color: var(--ink);
-  transition:
-    transform 180ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    background-color 220ms ease;
+  transition: all 300ms ease-in-out;
   will-change: transform;
 }
 
 .link:hover,
 .link:focus-visible {
-  transform: translateY(-2px);
+  background: #1E293B;
+  border-color: #475569;
   box-shadow: var(--shadow-lift);
-  border-color: rgba(199, 62, 29, 0.35);
+  transform: scale(1.02);
 }
 
 .link:focus-visible {
@@ -188,17 +203,17 @@ a {
 }
 
 .link:active {
-  transform: translateY(0);
+  transform: scale(1);
 }
 
 .link__icon {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: var(--bg);
+  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.5);
   color: var(--ink);
   flex-shrink: 0;
 }
@@ -210,20 +225,21 @@ a {
 .link__body {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.15rem;
   min-width: 0;
 }
 
 .link__title {
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1rem;
   letter-spacing: -0.005em;
   line-height: 1.2;
+  color: var(--ink);
 }
 
 .link__desc {
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   color: var(--ink-muted);
   line-height: 1.35;
   overflow: hidden;
@@ -249,12 +265,91 @@ a {
 .link--ghost {
   background: transparent;
   box-shadow: none;
-  border: 1px dashed rgba(26, 23, 20, 0.18);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
 }
 .link--ghost:hover,
 .link--ghost:focus-visible {
   background: var(--paper);
   border-style: solid;
+}
+
+/* ---------- Index-only hover animations ---------- */
+/* Scoped to body.links-page so portfolio/resume pages stay untouched. */
+.links-page .link {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Shimmer: a soft diagonal highlight sweeps across the card on hover.
+   Uses a keyframe (not a transition) so the un-hover doesn't play in reverse. */
+.links-page .link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.10) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.links-page .link:hover::before,
+.links-page .link:focus-visible::before {
+  animation: link-shimmer 900ms ease;
+}
+@keyframes link-shimmer {
+  to {
+    left: 130%;
+  }
+}
+
+/* Keep card content above the shimmer overlay. */
+.links-page .link__icon,
+.links-page .link__body,
+.links-page .link__arrow {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon container — brightens and scales tactilely on hover. */
+.links-page .link__icon {
+  transition:
+    background-color 300ms ease-in-out,
+    transform 300ms ease-in-out;
+}
+.links-page .link:hover .link__icon,
+.links-page .link:focus-visible .link__icon {
+  background: rgba(241, 245, 249, 0.14);
+  transform: scale(1.08);
+}
+
+/* Icon SVG — subtle inner pop. */
+.links-page .link__icon svg {
+  transition: transform 300ms ease;
+}
+.links-page .link:hover .link__icon svg,
+.links-page .link:focus-visible .link__icon svg {
+  transform: scale(1.08);
+}
+
+/* Outer slate halo layered on top of the existing lift shadow. */
+.links-page .link:hover,
+.links-page .link:focus-visible {
+  box-shadow:
+    var(--shadow-lift),
+    0 0 32px -8px rgba(241, 245, 249, 0.14);
+}
+
+/* Arrow — give it a touch more travel and brightness on hover than the base rule. */
+.links-page .link:hover .link__arrow,
+.links-page .link:focus-visible .link__arrow {
+  transform: translateX(5px);
 }
 
 /* ---------- Footer ---------- */
@@ -308,32 +403,3 @@ a {
   }
 }
 
-/* ---------- Dark mode ---------- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14110e;
-    --bg-deep: #0d0b09;
-    --ink: #f4ede2;
-    --ink-soft: #c8bdaf;
-    --ink-muted: #8a8278;
-    --paper: #1f1b17;
-    --rule: #f4ede2;
-    --accent: #e85a3a;
-    --accent-deep: #c73e1d;
-    --shadow-soft: 0 1px 0 rgba(0, 0, 0, 0.4), 0 10px 30px -18px rgba(0, 0, 0, 0.7);
-    --shadow-lift: 0 2px 0 rgba(0, 0, 0, 0.5), 0 22px 40px -22px rgba(0, 0, 0, 0.8);
-  }
-  .link {
-    border-color: rgba(244, 237, 226, 0.08);
-  }
-  .link:hover,
-  .link:focus-visible {
-    border-color: rgba(232, 90, 58, 0.45);
-  }
-  .link__icon {
-    background: rgba(244, 237, 226, 0.06);
-  }
-  .link--ghost {
-    border-color: rgba(244, 237, 226, 0.18);
-  }
-}

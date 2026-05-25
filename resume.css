@@ -1,0 +1,132 @@
+/* ---------- Résumé-specific layout ----------
+   Tokens come from styles.css; topbar/btn styles come from portfolio.css. */
+
+.resume__main {
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+/* ---------- Head ---------- */
+.resume__head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: end;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.resume__name {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  margin: 0 0 0.4rem;
+  font-variation-settings: "opsz" 144;
+}
+
+.resume__sub {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.resume__sub a {
+  color: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: color 180ms ease, border-color 180ms ease;
+}
+.resume__sub a:hover,
+.resume__sub a:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.resume__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.resume__actions .btn svg {
+  flex-shrink: 0;
+}
+
+@media (min-width: 720px) {
+  .resume__head {
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+  }
+}
+
+/* ---------- Document frame ---------- */
+.resume__doc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.resume__frame {
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  position: relative;
+  /* Approximate US Letter aspect ratio (8.5 / 11) so the embed has a stable height. */
+  aspect-ratio: 8.5 / 11;
+  max-height: 1100px;
+}
+
+.resume__frame object,
+.resume__frame embed,
+.resume__frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--paper);
+}
+
+.resume__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.resume__fallback a {
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+}
+.resume__fallback a:hover,
+.resume__fallback a:focus-visible {
+  color: var(--accent-deep);
+}
+
+.resume__note {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin: 0;
+  text-align: center;
+}
+.resume__note em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* On small screens, swap the rigid letter aspect for a tall but bounded viewer.
+   Mobile PDF iframes are often unreliable; we keep the embed but lean on the
+   action buttons above. */
+@media (max-width: 640px) {
+  .resume__frame {
+    aspect-ratio: auto;
+    height: 70svh;
+    min-height: 480px;
+  }
+}
+

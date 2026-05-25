@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0F111A" />
+    <meta name="color-scheme" content="dark" />
+    <title>Tai Le — Résumé</title>
+    <meta name="description" content="Résumé of Tai Le — view in browser or download as PDF." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portfolio.css" />
+    <link rel="stylesheet" href="resume.css" />
+  </head>
+  <body class="portfolio resume">
+    <a class="skip-link" href="#document">Skip to résumé</a>
+
+    <header class="topbar">
+      <a class="topbar__brand" href="index.html" aria-label="Back to links">
+        <span class="topbar__brand-mark">TL</span>
+        <span class="topbar__brand-name">Tai Le</span>
+      </a>
+      <nav class="topbar__nav" aria-label="Page sections">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="resume.html" aria-current="page">Resume</a>
+        <a href="mailto:tle271@ucmerced.edu">Contact</a>
+      </nav>
+      <a class="topbar__back" href="index.html">
+        <span aria-hidden="true">←</span>
+        <span>Links</span>
+      </a>
+    </header>
+
+    <main class="portfolio__main resume__main">
+      <section class="resume__head">
+        <div>
+          <p class="eyebrow">Resume &middot; <span>Updated 2025</span></p>
+          <h1 class="resume__name">Tai Le</h1>
+          <p class="resume__sub">
+            Computer Science and Engineering major at University of California, Merced</a>
+          </p>
+        </div>
+        <div class="resume__actions">
+          <a class="btn btn--primary" href="Resume.pdf" download="Tai-Le-Resume.pdf">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12" />
+              <path d="m7 10 5 5 5-5" />
+              <path d="M5 21h14" />
+            </svg>
+            <span>Download PDF</span>
+          </a>
+          <a class="btn" href="Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <span>Open in new tab</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="document" class="resume__doc" aria-label="Résumé document">
+        <div class="resume__frame">
+          <object
+            data="Resume.pdf#view=FitH&toolbar=1&navpanes=0"
+            type="application/pdf"
+            aria-label="Résumé PDF"
+          >
+            <div class="resume__fallback">
+              <p>
+                Your browser can&rsquo;t display the embedded PDF. You can still
+                <a href="Resume.pdf" target="_blank" rel="noopener noreferrer">open it in a new tab</a>
+                or
+                <a href="Resume.pdf" download="Tai-Le-Resume.pdf">download a copy</a>.
+              </p>
+            </div>
+          </object>
+        </div>
+        <p class="resume__note">
+          Best viewed on desktop. On mobile, tap <em>Open in new tab</em> for the full experience.
+        </p>
+      </section>
+    </main>
+
+    <footer class="portfolio__footer">
+      <p>
+        <span class="footer__mark">&sect;</span>
+        Tai Le &middot; <span id="year">2026</span> &middot; Built by hand.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

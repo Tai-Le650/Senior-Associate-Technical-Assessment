@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0F111A" />
+    <meta name="color-scheme" content="dark" />
+    <title>Ecosystem Simulator — Tai Le</title>
+    <meta name="description" content="An educational, web-based sandbox game built in Godot 4.6, with simulation modes, AI analysis, and a 3D sandbox." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portfolio.css" />
+  </head>
+  <body class="portfolio detail">
+    <a class="skip-link" href="#detail">Skip to project details</a>
+
+    <header class="topbar">
+      <a class="topbar__brand" href="index.html" aria-label="Back to links">
+        <span class="topbar__brand-mark">TL</span>
+        <span class="topbar__brand-name">Tai Le</span>
+      </a>
+      <nav class="topbar__nav" aria-label="Page sections">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="resume.html">Resume</a>
+        <a href="mailto:tle271@ucmerced.edu">Contact</a>
+      </nav>
+      <a class="topbar__back" href="portfolio.html#work">
+        <span aria-hidden="true">←</span>
+        <span>Portfolio</span>
+      </a>
+    </header>
+
+    <main class="portfolio__main" id="detail">
+      <section class="detail-head">
+        <p class="eyebrow">Project &middot; <span>2025</span> &middot; Godot &middot; GDScript</p>
+        <h1 class="detail__title">Ecosystem Simulator</h1>
+        <p class="detail__lede">
+          An educational sandbox game where players paint terrain, plants, and animals into a live
+          3D world and watch the ecosystem unfold.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary" href="https://s26-cse-334-10.onrender.com/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>Play the game</span>
+            <span aria-hidden="true">&#8599;</span>
+          </a>
+        </div>
+      </section>
+
+      <figure class="detail-hero">
+        <img
+          src="Ecosystem%20Simulator%20Image.png"
+          alt="Screenshot of the Ecosystem Simulator showing a 3D landscape with terrain, plants, and animals."
+        />
+      </figure>
+
+      <section id="about" class="detail-prose">
+        <h2 class="section-title"><span class="section-title__num">00</span> About this Game</h2>
+        <p>
+          An educational, web-based sandbox game built in Godot 4.6 with GDScript, where players
+          draw terrains and place plants and animals to see how their choices shape an ecosystem
+          over time. It includes multiple game modes &mdash; Free Play, Pre-Lab, Walk-Through
+          simulation, and Explore Planets &mdash; plus an AI helper bot with text and speech
+          support, as well as post-simulation analysis, to help high school and undergraduate
+          students learn STEM concepts. Quizzes at the end of Pre-Lab and Walk-Through, simulation
+          scrubbing, and a 3D sandbox round it out.
+        </p>
+      </section>
+
+      <section id="how-to-play" class="detail-prose">
+        <h2 class="section-title"><span class="section-title__num">01</span> How to Play</h2>
+        <p>
+          Start by picking a game mode from the lobby: Free Play if you want to experiment freely,
+          Walk-Through if you want a guided lesson, Pre-Lab if you want to follow the scientific
+          method, or Explore Planets if you want to load a real-world location. Once you&rsquo;re
+          in the sandbox, use the Build Tools panel on the left to select a terrain type, plant,
+          or animal, then click or drag on the 3D canvas to paint your ecosystem. Right-click and
+          drag to rotate the camera, and scroll to zoom in or out.
+        </p>
+        <p>
+          When your ecosystem looks the way you want, hit Play and watch your animals hunt, eat,
+          drink, reproduce, and die in real time. You can drag the timeline slider to rewind and
+          see what happened at any point, then resume from there to explore a different outcome.
+          When you&rsquo;re done, click End Simulation to get a breakdown of your ecosystem&rsquo;s
+          health and an AI-written analysis of what worked and what didn&rsquo;t.
+        </p>
+        <p>
+          If you ever get stuck, the Tutorial button in the header walks you through the current
+          mode step by step, and the Helper Bot (&#128172;) can answer questions at any time.
+        </p>
+      </section>
+
+      <section id="features">
+        <h2 class="section-title"><span class="section-title__num">02</span> Game Features</h2>
+        <dl class="detail-features">
+          <div>
+            <dt>Free Play</dt>
+            <dd>Open sandbox where you build and run any ecosystem you want with no restrictions or goals.</dd>
+          </div>
+          <div>
+            <dt>Pre-Lab</dt>
+            <dd>Structured mode where you form a hypothesis, run a simulation, write a Claim&ndash;Evidence&ndash;Reasoning reflection, and take a quiz.</dd>
+          </div>
+          <div>
+            <dt>Walk-Through</dt>
+            <dd>Step-by-step guided lessons led by EcoBot across four ecology topics, with voice narration and a quiz at the end.</dd>
+          </div>
+          <div>
+            <dt>Explore Planets</dt>
+            <dd>Spin a 3D globe, click any real-world location, and load its actual climate and species into the sandbox.</dd>
+          </div>
+          <div>
+            <dt>3D Sandbox</dt>
+            <dd>Paint terrain, plants, and animals onto a live 3D world and watch them interact through a real ecology simulation.</dd>
+          </div>
+          <div>
+            <dt>Timeline Scrubbing</dt>
+            <dd>Drag a slider to rewind the simulation to any earlier moment, then resume from there to explore a different outcome.</dd>
+          </div>
+          <div>
+            <dt>AI Ecosystem Analysis</dt>
+            <dd>After every run, an AI reviews your ecosystem and explains what was healthy, what was off-balance, and why.</dd>
+          </div>
+          <div>
+            <dt>Helper Bot</dt>
+            <dd>A context-aware chat assistant available at any time that knows what mode you&rsquo;re in and what&rsquo;s happening in your simulation.</dd>
+          </div>
+          <div>
+            <dt>Voice Input &amp; Output</dt>
+            <dd>Talk to the Helper Bot or answer reflection prompts with your microphone, and have EcoBot&rsquo;s messages read aloud.</dd>
+          </div>
+          <div>
+            <dt>Ecosystem Metrics</dt>
+            <dd>Live tracking of biodiversity, food web balance, water quality, soil health, carbon storage, and erosion safety.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="stack">
+        <h2 class="section-title"><span class="section-title__num">03</span> Software Stack</h2>
+        <dl class="about__stack">
+          <div>
+            <dt>Frontend</dt>
+            <dd>Godot Engine 4.6 (Forward Plus), GDScript</dd>
+          </div>
+          <div>
+            <dt>Backend</dt>
+            <dd>Node.js, OpenRouter &rarr; Google Gemini 3.1 Flash Lite, express-rate-limit</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="process" class="detail-prose">
+        <h2 class="section-title"><span class="section-title__num">04</span> Creation Process</h2>
+        <p>
+          Before coding the game, I wrote down all the features I wanted and brainstormed how I
+          wanted the game to run and function. I then put the same prompt into ChatGPT 5.2,
+          Gemini 3, and Claude Sonnet 4.5 to compare the results. The prompt was:
+        </p>
+        <blockquote class="detail-quote">
+          Create a web-based HTML game where the STEM topic is Ecology / Environmental Science.
+          Have it where the player starts off with an environment, and they can drag and drop
+          different plants and animals. They can adjust the physical environment too &mdash;
+          adding sand, rocks, trees, rivers, lakes, oceans, hills, and mountains. Each time the
+          player adds or changes something it will show the effects of it in the game.
+        </blockquote>
+        <p>
+          ChatGPT 5.2 produced the best-looking game that ran smoothly and had a solid feature set,
+          so I used it to help me code an HTML/CSS/JavaScript version. Once that version was close
+          to completion, I started thinking of additional features I wanted to add. I researched
+          tradeoffs and brainstormed with Google Gemini Pro, and concluded that staying on plain
+          HTML/CSS/JavaScript would make the new features too hard to implement &mdash; so I
+          ported the game to the Godot game engine. Once I was on Godot, I switched to Claude
+          Opus 4.5, 4.6, and 4.7 for code assistance.
+        </p>
+      </section>
+
+      <section id="takeaways" class="detail-prose">
+        <h2 class="section-title"><span class="section-title__num">05</span> Key Takeaways</h2>
+        <p>
+          I could have stored API keys inside Godot via an <code>.env</code> file and injected
+          them as environment variables when deploying to the web, but that path was harder and
+          more brittle than necessary &mdash; a backend turned out to be both more secure and
+          simpler to implement.
+        </p>
+        <p>
+          To avoid AI hallucinations in the ecosystem analyses and lesson content, I anchored the
+          model on real-world data so all facts and details stay accurate.
+        </p>
+        <p>
+          And a hard-earned lesson: some features that worked perfectly locally in Godot did not
+          always behave the same way (or work at all) once deployed to the web, so testing the
+          web build early and often was essential.
+        </p>
+      </section>
+
+      <section class="contact">
+        <div class="contact__actions">
+          <a class="btn btn--primary" href="https://s26-cse-334-10.onrender.com/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>Play the game</span>
+            <span aria-hidden="true">&#8599;</span>
+          </a>
+          <a class="btn" href="portfolio.html#work">
+            <span aria-hidden="true">&larr;</span>
+            <span>Back to Portfolio</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="portfolio__footer">
+      <p>
+        <span class="footer__mark">&sect;</span>
+        Tai Le &middot; <span id="year">2026</span>
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
