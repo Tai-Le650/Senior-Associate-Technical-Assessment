@@ -17,7 +17,11 @@ does not have to do it themselves.
 
 ## How to run it
 
-It is a fully static site. Open [index.html](index.html) in any web browser.
+Type into the terminal:
+`python -m http.server 8000 --bind 127.0.0.1
+`
+
+Then click the link.
 
 Look for the dark **"Ask about Tai"** pill in the bottom-right corner. Click it, then
 try one of the seeded chips or type a free-form question (e.g. *"is Tai a good fit for
@@ -27,15 +31,14 @@ a frontend role?"*, *"what did they do at LLNL?"*, *"download the résumé"*).
 
 ## What the feature does
 
-- **Intent classification.** The user's message is matched against a priority-ordered list of word-boundary regexes covering eight intents: `summarize`, `skills`, `experience`, `projects`, `education`, `resume`, `contact`, `role-fit`, plus a `fallback`.
-- **Mock-RAG scan.** Each intent has a scripted "scan sequence" (*Scanning portfolio.html#about…*, *Cross-checking Resume.pdf…*) that runs before the answer. It establishes the mental model that the bot is *reading the linked documents*, which is what a real version would actually do.
-- **Templated answers with citations.** Each response is built from the `PROFILE` object and tagged with the source field for each fact used (e.g. `Resume.pdf`, `portfolio.html#about`). Sources render as a footer line on every bot bubble.
-- **Follow-up action chips.** Every answer ships with 2–3 contextual buttons — "Tell me about EcoBuilder", "Download the résumé", "📧 Email Tai" — that either send a synthesized follow-up question or fire a direct action (open link, mailto, download PDF).
-- **Role-fit scoring.** When a visitor asks *"good fit for a [role]?"*, the widget extracts the role phrase, two-tier matches it against `roleKeywords` (name-token match required to avoid false confidence from incidental skill overlap), and returns a verdict band (Strong / Reasonable / Stretch) with the percentage and the matched skills. If the role doesn't overlap at all, it says so honestly instead of forcing a high score.
+Currently all the data is hardcoded but it would realisticly click links and look through
+them and also download and look through any documents on the Linktree. Then it will
+either give a general, overall summary of the person or answer a specific question
+or inquiry the user asks.
 
 ---
 
-## What is the feature? (plain language)
+## What is the feature?
 
 It's a small chat widget on a personal Linktree that answers questions about the
 person on the page — "what are their skills?", "show me their work", "good fit for
@@ -134,11 +137,6 @@ ceremony.
 ---
 
 ## How would you approach building this at production scale?
-
-At the demo scale, the bot is a regex + a JSON blob. At Linktree scale (tens of
-millions of pages, billions of queries/year), the interesting problems aren't in the
-widget — they're in the **knowledge layer**, the **inference layer**, and the
-**guardrails**.
 
 **Data model.** Each Linktree page becomes the root of a small per-user knowledge
 graph: the profile fields and link list (already structured), plus optional uploads
